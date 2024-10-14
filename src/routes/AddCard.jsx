@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addCard } from "../redux/cardSlice";
 import Card from "../components/Card/Card";
 
 export default function AddCard() {
@@ -9,11 +11,23 @@ export default function AddCard() {
   const [expire, setExpire] = useState("");
   const [CVV, setCVV] = useState(0);
   const [vendor, setVendor] = useState("");
+  const dispatch = useDispatch();
+
+  let cards = useSelector((store) => store.cardReducer.cards);
+  console.log(cards);
+
+  let maxId = 0;
+  cards.forEach((card) => {
+    if (card.id > maxId) {
+      maxId = card.id;
+    }
+  });
+  maxId += 1;
 
   useEffect(() => {
     const inputCardData = () => {
       let inputCard = {
-        // id: どうしよ。
+        id: maxId,
         number: number,
         activate: false,
         holder: holder,
@@ -29,7 +43,7 @@ export default function AddCard() {
   const navigate = useNavigate();
   const createCard = () => {
     // ReduxのState変更シンタックス
-    alert("Card has created.");
+    dispatch(addCard(newCard));
     navigate("/");
   };
 
@@ -89,11 +103,10 @@ export default function AddCard() {
             }}
           >
             <option value="">Choose Vendor</option>
-            <option value="Nordea">Nordea</option>
-            <option value="SEB">SEB</option>
-            <option value="SBAB">SBAB</option>
-            <option value="Swedbank">Swedbank</option>
-            <option value="ICA">ICA</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="VISA">VISA</option>
+            <option value="AMEX">American Express</option>
+            <option value="JCB">JCB</option>
           </select>
         </div>
       </div>
@@ -105,6 +118,7 @@ export default function AddCard() {
       >
         Add new card
       </button>
+      <Link to={"/"}>Back to home</Link>
     </div>
   );
 }

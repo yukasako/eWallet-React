@@ -1,9 +1,20 @@
-.card {
+.inactivate {
   width: 350px;
   height: 200px;
   border-radius: 15px;
   border: 1px solid black;
   background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
+}
+
+.activate {
+  width: 350px;
+  height: 200px;
+  border-radius: 15px;
+  border: 1px solid black;
+  background: linear-gradient(135deg, #b74b8f, #481832);
   color: white;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */

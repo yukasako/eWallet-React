@@ -1,10 +1,14 @@
+// import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Card from "../components/Card/Card";
 
 export default function Home() {
   let cards = useSelector((store) => store.cardReducer.cards);
-  console.log(cards);
+
+  // useEffect(() => {
+  //   console.log(cards);
+  // }, [cards]);
 
   return (
     <div>
@@ -17,9 +21,13 @@ export default function Home() {
         ))}
       </div>
 
-      <Link to="/addCard">
-        <button>Add Card</button>
-      </Link>
+      <button>
+        {cards.length < 4 ? (
+          <Link to="/addCard">Add Card </Link>
+        ) : (
+          "Max 4 cards"
+        )}
+      </button>
     </div>
   );
 }
