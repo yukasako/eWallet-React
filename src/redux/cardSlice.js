@@ -6,7 +6,7 @@ const cardSlice = createSlice({
     cards: [
       {
         id: 1,
-        number: 123456,
+        number: 1234567891012345,
         activate: true,
         holder: "Yukako Sakozono",
         expire: "2/2025",
@@ -18,6 +18,15 @@ const cardSlice = createSlice({
         number: 123456,
         activate: false,
         holder: "Dan Isacson",
+        expire: "2/2025",
+        CVV: 123,
+        vendor: "AMEX",
+      },
+      {
+        id: 3,
+        number: 123456,
+        activate: false,
+        holder: "Anna Isacson",
         expire: "2/2025",
         CVV: 123,
         vendor: "AMEX",

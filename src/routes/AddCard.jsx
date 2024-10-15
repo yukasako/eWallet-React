@@ -16,6 +16,7 @@ export default function AddCard() {
   let cards = useSelector((store) => store.cardReducer.cards);
   console.log(cards);
 
+  // ID作成
   let maxId = 0;
   cards.forEach((card) => {
     if (card.id > maxId) {
@@ -46,20 +47,26 @@ export default function AddCard() {
     dispatch(addCard(newCard));
     navigate("/");
   };
-
   return (
     <div>
       <h2>Add Card</h2>
       <Card card={newCard} />
       <br />
+      {/* Input Form */}
       <div>
         <div>
           <label htmlFor="number">Number: </label>
           <input
             type="number"
             id="number"
+            disabled={false}
             onChange={(event) => {
-              setNumber(event.target.value);
+              if (event.target.value.length < 16) {
+                setNumber(event.target.value);
+              } else if (event.target.value.length >= 16) {
+                setNumber(event.target.value);
+                event.target.disabled = true;
+              }
             }}
           />
         </div>
@@ -78,6 +85,7 @@ export default function AddCard() {
           <input
             type="date"
             id="expire"
+            min={new Date().toISOString().split("T")[0]}
             onChange={(event) => {
               setExpire(event.target.value);
             }}
@@ -86,7 +94,7 @@ export default function AddCard() {
         <div>
           <label htmlFor="expire">CVV: </label>
           <input
-            type="number"
+            type="password"
             id="CVV"
             onChange={(event) => {
               setCVV(event.target.value);
@@ -113,7 +121,16 @@ export default function AddCard() {
       <br />
       <button
         onClick={() => {
-          createCard();
+          if (
+            number.length === 16 &&
+            holder.length !== 0 &&
+            expire.length !== 0 &&
+            vendor.length !== 0
+          ) {
+            createCard();
+          } else {
+            alert(`Information missing. Card number should be 16 digis.`);
+          }
         }}
       >
         Add new card

@@ -2,9 +2,23 @@
 import style from "../Card/Card.module.css";
 
 export default function Card({ card }) {
-  let activateStatus = card.activate ? style.activate : style.inactivate;
+  let cardVendor = style.noVendor;
+  switch (card.vendor) {
+    case "VISA":
+      cardVendor = style.VISA;
+      break;
+    case "Mastercard":
+      cardVendor = style.Mastercard;
+      break;
+    case "AMEX":
+      cardVendor = style.AMEX;
+      break;
+    case "JCB":
+      cardVendor = style.JCB;
+      break;
+  }
   return (
-    <div className={activateStatus}>
+    <div className={cardVendor}>
       <p>Number: {card.number}</p>
       <p>Holder: {card.holder}</p>
       <p>Expire: {card.expire}</p>

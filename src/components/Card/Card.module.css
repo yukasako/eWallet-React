@@ -1,4 +1,4 @@
-.inactivate {
+.noVendor {
   width: 350px;
   height: 200px;
   border-radius: 15px;
@@ -9,12 +9,45 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
 }
 
-.activate {
+.Mastercard {
+  width: 350px;
+  height: 200px;
+  border-radius: 15px;
+  border: 1px solid black;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
+}
+
+.VISA {
   width: 350px;
   height: 200px;
   border-radius: 15px;
   border: 1px solid black;
   background: linear-gradient(135deg, #b74b8f, #481832);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
+}
+
+.AMEX {
+  width: 350px;
+  height: 200px;
+  border-radius: 15px;
+  border: 1px solid black;
+  background: lightseagreen;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
+}
+
+.JCB {
+  width: 350px;
+  height: 200px;
+  border-radius: 15px;
+  border: 1px solid black;
+  background: lightsalmon;
   color: white;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
