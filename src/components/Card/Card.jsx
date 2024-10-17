@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import style from "../Card/Card.module.css";
+import style from "./Card.module.css";
 
 export default function Card({ card }) {
   let cardVendor = style.noVendor;

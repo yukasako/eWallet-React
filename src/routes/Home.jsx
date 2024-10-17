@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Card from "../components/Card/Card";
+import style from "../components/Card/Card.module.css";
 // import { useEffect } from "react";
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <div>
       <h2>Home</h2>
-      <div>
+      <div className={style.renderCard}>
         {cards.map((card, i) =>
           card.activate ? (
             <div key={i}>
@@ -27,7 +28,9 @@ export default function Home() {
             ""
           )
         )}
-        <h3>Inactivate Cards</h3>
+      </div>
+      <h3>Inactivate Cards</h3>
+      <div className={style.renderCard}>
         {cards.map((card, i) =>
           card.activate ? (
             ""

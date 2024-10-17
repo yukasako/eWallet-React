@@ -1,0 +1,30 @@
+header {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0, 20, 0, 20;
+}
+
+header.light {
+  background: rgb(255, 227, 128);
+}
+
+header.dark {
+  background: rgb(139, 139, 139);
+}
+
+header.green {
+  background: rgb(202, 255, 209);
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
