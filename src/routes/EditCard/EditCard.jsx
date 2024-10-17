@@ -17,34 +17,29 @@ export default function EditCard() {
   const [expire, setExpire] = useState(location.state.expire);
   const [CVV, setCVV] = useState(location.state.CVV);
   const [vendor, setVendor] = useState(location.state.vendor);
-  const [activate, setActivate] = useState(location.state.activate);
+  const [activate] = useState(location.state.activate);
 
   let cards = useSelector((store) => store.cardReducer.cards);
 
   const toggleActivate = () => {
-    // Activeカードは１枚だけ
-    let otherActiveCards = cards.filter((card) => {
+    // 他のActivateカードをinactivateに
+    let currentActiveCard = cards.find((card) => {
       return card.activate && card.id !== location.state.id;
     });
-    console.log(otherActiveCards);
-    // Toggle
-    if (otherActiveCards.length === 0) {
-      setActivate(!activate);
-    } else {
-      alert("Only one card can be activated. Inactivate other cards first");
-      navigate("/");
+    if (currentActiveCard) {
+      let deactevateCard = { ...currentActiveCard, activate: false };
+      dispatch(editCard(deactevateCard));
     }
-  };
 
-  useEffect(() => {
+    // 現在のカードをアクティベート
     const updatedCard = {
       ...card,
-      activate: activate,
+      activate: true,
     };
-    console.log(updatedCard);
-    setCard(updatedCard);
     dispatch(editCard(updatedCard));
-  }, [activate]);
+    alert("This card is activated.");
+    navigate("/");
+  };
 
   const updateCard = () => {
     const updatedCard = {
@@ -64,18 +59,26 @@ export default function EditCard() {
     <div>
       <h2>Edit Card</h2>
       <div className={style.editCard}>
-        <button
-          onClick={() => {
-            toggleActivate();
-          }}
-        >
-          {card.activate ? "Inactivate" : "Activate"}
-        </button>
+        {card.activate ? (
+          ""
+        ) : (
+          <button
+            onClick={() => {
+              toggleActivate();
+            }}
+          >
+            Activate Card
+            {/* {card.activate ? "Inactivate" : "Activate"} */}
+          </button>
+        )}
+
         <Card card={card} />
 
         {/* Render if card is activate */}
         {card.activate ? (
-          <p>The card is activated. Inactivation is required to edit.</p>
+          <p>
+            This Card is activated. Activate another card to edit this card.
+          </p>
         ) : (
           <div>
             {/* Input Form */}

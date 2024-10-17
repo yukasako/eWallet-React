@@ -50,10 +50,11 @@ const cardSlice = createSlice({
     },
     editCard: (state, action) => {
       state.cards = state.cards.map((card) => {
+        // 該当カードを編集
         if (card.id === action.payload.id) {
           return (card = action.payload);
         } else {
-          return card;
+          return card; //該当ではない（IDが一致しない）場合、そのまま返す。
         }
       });
     },
