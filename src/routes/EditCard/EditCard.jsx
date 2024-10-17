@@ -36,7 +36,9 @@ export default function EditCard() {
       ...card,
       activate: true,
     };
+    console.log(updatedCard);
     dispatch(editCard(updatedCard));
+    console.log(cards);
     alert("This card is activated.");
     navigate("/");
   };
@@ -58,8 +60,9 @@ export default function EditCard() {
   // カードUIの同期
   useEffect(() => {
     setCard({
+      id: card.id,
       number: number,
-      activate: false,
+      activate: activate,
       holder: holder,
       expire: expire,
       CVV: CVV,

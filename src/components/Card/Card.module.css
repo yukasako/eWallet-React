@@ -1,56 +1,64 @@
-.noVendor {
+.defaultCard {
   width: 350px;
   height: 200px;
   border-radius: 15px;
   border: 1px solid black;
-  background: linear-gradient(135deg, #4b6cb7, #182848);
-  color: white;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.space {
+  height: 70px;
+}
+
+.logoAndCardInfo {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.number {
+  width: 100%;
+  font-size: 18px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
 }
 
 .Mastercard {
-  width: 350px;
-  height: 200px;
-  border-radius: 15px;
-  border: 1px solid black;
   background: linear-gradient(135deg, #4b6cb7, #182848);
   color: white;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
 }
 
 .VISA {
-  width: 350px;
-  height: 200px;
-  border-radius: 15px;
-  border: 1px solid black;
   background: linear-gradient(135deg, #b74b8f, #481832);
   color: white;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
 }
 
 .AMEX {
-  width: 350px;
-  height: 200px;
-  border-radius: 15px;
-  border: 1px solid black;
   background: lightseagreen;
   color: white;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
+}
+.AMEX img {
+  width: 60px;
 }
 
 .JCB {
-  width: 350px;
-  height: 200px;
-  border-radius: 15px;
-  border: 1px solid black;
   background: lightsalmon;
   color: white;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウ */
 }
 
 .renderCard {
