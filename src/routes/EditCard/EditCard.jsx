@@ -55,6 +55,18 @@ export default function EditCard() {
     dispatch(editCard(updatedCard));
   };
 
+  // カードUIの同期
+  useEffect(() => {
+    setCard({
+      number: number,
+      activate: false,
+      holder: holder,
+      expire: expire,
+      CVV: CVV,
+      vendor: vendor,
+    });
+  }, [number, holder, expire, CVV, vendor]);
+
   return (
     <div>
       <h2>Edit Card</h2>

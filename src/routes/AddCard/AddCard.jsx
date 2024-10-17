@@ -26,20 +26,17 @@ export default function AddCard() {
   });
   maxId += 1;
 
+  // カードUIの同期
   useEffect(() => {
-    const inputCardData = () => {
-      let inputCard = {
-        id: maxId,
-        number: number,
-        activate: false,
-        holder: holder,
-        expire: expire,
-        CVV: CVV,
-        vendor: vendor,
-      };
-      setNewCard(inputCard);
-    };
-    inputCardData();
+    setNewCard({
+      id: maxId,
+      number: number,
+      activate: false,
+      holder: holder,
+      expire: expire,
+      CVV: CVV,
+      vendor: vendor,
+    });
   }, [number, holder, expire, CVV, vendor]);
 
   const navigate = useNavigate();
