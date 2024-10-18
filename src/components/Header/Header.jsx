@@ -1,6 +1,7 @@
 import style from "../Header/Header.module.css";
 import Nav from "./Nav";
 import { useSelector } from "react-redux";
+import logo from "../../assets/logo.svg";
 
 export default function Header() {
   let colorTheme = useSelector((store) => store.themeReducer.theme);
@@ -8,7 +9,7 @@ export default function Header() {
 
   return (
     <header className={headerColor}>
-      <p>Header</p>
+      <img src={logo} alt="logo" />
       <Nav></Nav>
     </header>
   );

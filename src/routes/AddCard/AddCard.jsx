@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addCard } from "../../redux/cardSlice";
 import Card from "../../components/Card/Card";
@@ -15,7 +15,6 @@ export default function AddCard() {
   const dispatch = useDispatch();
 
   let cards = useSelector((store) => store.cardReducer.cards);
-  console.log(cards);
 
   // ID作成
   let maxId = 0;
@@ -53,7 +52,7 @@ export default function AddCard() {
         {/* Input Form */}
         <div>
           <div>
-            <label htmlFor="number">Number: </label>
+            <label htmlFor="number">Number : </label>
             <input
               type="number"
               id="number"
@@ -69,7 +68,7 @@ export default function AddCard() {
             />
           </div>
           <div>
-            <label htmlFor="holder">Holder: </label>
+            <label htmlFor="holder">Holder : </label>
             <input
               type="text"
               id="holder"
@@ -79,18 +78,22 @@ export default function AddCard() {
             />
           </div>
           <div>
-            <label htmlFor="expire">Expire Date: </label>
+            <label htmlFor="expire">Expire Date : </label>
             <input
               type="date"
               id="expire"
               min={new Date().toISOString().split("T")[0]}
               onChange={(event) => {
-                setExpire(event.target.value);
+                let date = event.target.value;
+                let year = date.split("-")[0];
+                let month = date.split("-")[1];
+                console.log(year, month);
+                setExpire(`${month}/${year}`);
               }}
             />
           </div>
           <div>
-            <label htmlFor="expire">CVV: </label>
+            <label htmlFor="expire">CVV : </label>
             <input
               type="password"
               id="CVV"
@@ -100,7 +103,7 @@ export default function AddCard() {
             />
           </div>
           <div>
-            <label htmlFor="vendor">Vendor</label>
+            <label htmlFor="vendor">Vendor : </label>
             <select
               name="vendor"
               id="vendor"
@@ -116,23 +119,25 @@ export default function AddCard() {
             </select>
           </div>
         </div>
-        <button
-          onClick={() => {
-            if (
-              number.length === 16 &&
-              holder.length !== 0 &&
-              expire.length !== 0 &&
-              vendor.length !== 0
-            ) {
-              createCard();
-            } else {
-              alert(`Information missing. Card number should be 16 digis.`);
-            }
-          }}
-        >
-          Add new card
-        </button>
-        <Link to={"/"}>Back to home</Link>
+        <div>
+          {" "}
+          <button
+            onClick={() => {
+              if (
+                number.length === 16 &&
+                holder.length !== 0 &&
+                expire.length !== 0 &&
+                vendor.length !== 0
+              ) {
+                createCard();
+              } else {
+                alert(`Information missing. Card number should be 16 digis.`);
+              }
+            }}
+          >
+            Add new card
+          </button>
+        </div>
       </div>
     </div>
   );

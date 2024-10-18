@@ -1,5 +1,6 @@
 header {
   width: 100vw;
+  height: 70px;
   position: absolute;
   top: 0;
   left: 0;
@@ -8,19 +9,25 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0, 20, 0, 20;
+}
+
+header img {
+  margin-left: 32px;
+}
+header nav {
+  margin-right: 32px;
 }
 
 header.light {
-  background: rgb(255, 227, 128);
+  background: linear-gradient(135deg, #f0f0f0, #ffffff);
 }
 
 header.dark {
-  background: rgb(139, 139, 139);
+  background: linear-gradient(135deg, #1f1f1f, #383838);
 }
 
 header.green {
-  background: rgb(202, 255, 209);
+  background: linear-gradient(135deg, #006400, #228b22);
 }
 
 .nav {

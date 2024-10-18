@@ -13,13 +13,12 @@ export default function Home() {
   // }, [cards]);
 
   return (
-    <div>
-      <h2>Home</h2>
+    <div className={style.renderField}>
       <div className={style.renderCard}>
         {cards.map((card, i) =>
           card.activate ? (
             <div key={i}>
-              <h3>Activate Card</h3>
+              <h2>Activate Card</h2>
               <Link to={"/card/" + card.id} state={card}>
                 <Card card={card} />
               </Link>
@@ -29,7 +28,7 @@ export default function Home() {
           )
         )}
       </div>
-      <h3>Inactivate Cards</h3>
+      <h2>Inactivate Cards</h2>
       <div className={style.renderCard}>
         {cards.map((card, i) =>
           card.activate ? (
@@ -42,13 +41,13 @@ export default function Home() {
         )}
       </div>
 
-      <button>
-        {cards.length < 4 ? (
-          <Link to="/addCard">Add Card </Link>
-        ) : (
-          "Max 4 cards"
-        )}
-      </button>
+      {cards.length < 4 ? (
+        <button>
+          <Link to="/addCard">Add Card </Link>{" "}
+        </button>
+      ) : (
+        <p>Max 4 cards</p>
+      )}
     </div>
   );
 }

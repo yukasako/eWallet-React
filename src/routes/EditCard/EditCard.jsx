@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Card from "../../components/Card/Card";
 import { deleteCard } from "../../redux/cardSlice";
@@ -82,24 +82,23 @@ export default function EditCard() {
               toggleActivate();
             }}
           >
-            Activate Card
-            {/* {card.activate ? "Inactivate" : "Activate"} */}
+            Activate
           </button>
         )}
-
         <Card card={card} />
 
         {/* Render if card is activate */}
         {card.activate ? (
           <p>
-            This Card is activated. Activate another card to edit this card.
+            This Card is activated. <br />
+            Activate another card to edit this card.
           </p>
         ) : (
-          <div>
+          <div className={style.formAndButtons}>
             {/* Input Form */}
-            <div>
+            <div className={style.inputForm}>
               <div>
-                <label htmlFor="number">Number: </label>
+                <label htmlFor="number">Number : </label>
                 <input
                   type="number"
                   id="number"
@@ -115,7 +114,7 @@ export default function EditCard() {
                 />
               </div>
               <div>
-                <label htmlFor="holder">Holder: </label>
+                <label htmlFor="holder">Holder : </label>
                 <input
                   type="text"
                   id="holder"
@@ -125,18 +124,22 @@ export default function EditCard() {
                 />
               </div>
               <div>
-                <label htmlFor="expire">Expire Date: </label>
+                <label htmlFor="expire">Expire Date : </label>
                 <input
                   type="date"
                   id="expire"
                   min={new Date().toISOString().split("T")[0]}
                   onChange={(event) => {
-                    setExpire(event.target.value);
+                    let date = event.target.value;
+                    let year = date.split("-")[0];
+                    let month = date.split("-")[1];
+                    console.log(year, month);
+                    setExpire(`${month}/${year}`);
                   }}
                 />
               </div>
               <div>
-                <label htmlFor="expire">CVV: </label>
+                <label htmlFor="expire">CVV : </label>
                 <input
                   type="password"
                   id="CVV"
@@ -146,7 +149,7 @@ export default function EditCard() {
                 />
               </div>
               <div>
-                <label htmlFor="vendor">Vendor</label>
+                <label htmlFor="vendor">Vendor : </label>
                 <select
                   name="vendor"
                   id="vendor"
@@ -162,27 +165,28 @@ export default function EditCard() {
                 </select>
               </div>
             </div>
-            <button
-              onClick={() => {
-                updateCard();
-                alert("Card is updated");
-              }}
-            >
-              Edit Card
-            </button>
-            <button
-              onClick={() => {
-                dispatch(deleteCard(card));
-                alert(`Card id:${card.id} has deleted`);
-                navigate("/");
-              }}
-            >
-              Delete Card
-            </button>
+            <div>
+              <button
+                onClick={() => {
+                  updateCard();
+                  alert("Card is updated");
+                  navigate("/");
+                }}
+              >
+                Edit Card
+              </button>
+              <button
+                onClick={() => {
+                  dispatch(deleteCard(card));
+                  alert(`Card id:${card.id} has deleted`);
+                  navigate("/");
+                }}
+              >
+                Delete Card
+              </button>
+            </div>
           </div>
         )}
-
-        <Link to={"/"}>Back to home</Link>
       </div>
     </div>
   );
