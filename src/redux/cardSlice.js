@@ -11,7 +11,7 @@ const cardSlice = createSlice({
         holder: "Yukako Sakozono",
         expire: "2/2025",
         CVV: 123,
-        vendor: "JCB",
+        vendor: "AMEX",
       },
       {
         id: 2,
@@ -29,7 +29,7 @@ const cardSlice = createSlice({
         holder: "Anna Isacson",
         expire: "2/2025",
         CVV: 123,
-        vendor: "VISA",
+        vendor: "JCB",
       },
     ],
   },

@@ -4,9 +4,18 @@ import style from "./Header.module.css";
 export default function Nav() {
   return (
     <nav className={style.nav}>
-      <Link to={"/"}>Home</Link>
-      <Link to={"/addCard"}>Add Card</Link>
-      <Link to={"/setting"}>Setting</Link>
+      <div className={style.icons}>
+        <i className="fa-solid fa-house"></i>
+        <Link to={"/"}>Home</Link>
+      </div>
+      <div className={style.icons}>
+        <i className="fa-solid fa-credit-card"></i>
+        <Link to={"/addCard"}>Add Card</Link>
+      </div>
+      <div className={style.icons}>
+        <i className="fa-solid fa-screwdriver-wrench"></i>
+        <Link to={"/setting"}>Setting</Link>
+      </div>
     </nav>
   );
 }

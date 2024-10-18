@@ -12,14 +12,14 @@ header {
 }
 
 header img {
-  margin-left: 32px;
+  margin-left: 40px;
 }
 header nav {
   margin-right: 32px;
 }
 
 header.light {
-  background: linear-gradient(135deg, #f0f0f0, #ffffff);
+  background: linear-gradient(135deg, #909090, #f0f0f0);
 }
 
 header.dark {
@@ -27,11 +27,18 @@ header.dark {
 }
 
 header.green {
-  background: linear-gradient(135deg, #006400, #228b22);
+  background: linear-gradient(135deg, #646100, #798b22);
 }
 
 .nav {
   display: flex;
   flex-direction: row;
   gap: 20px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
