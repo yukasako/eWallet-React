@@ -16,7 +16,7 @@ export default function Setting() {
     inactivates.forEach((card) => {
       dispatch(deleteCard(card));
     });
-    alert("All inactivate cards has been deleted.");
+    alert("All inactive cards have been deleted.");
   };
 
   return (
@@ -41,7 +41,7 @@ export default function Setting() {
             deleteInactivates();
           }}
         >
-          Delete all inactivate cards
+          Delete all inactive cards
         </button>
       </div>
     </div>
