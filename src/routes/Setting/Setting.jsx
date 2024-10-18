@@ -13,10 +13,10 @@ export default function Setting() {
     let inactivates = cards.filter((card) => {
       return card.activate === false;
     });
-    console.log(inactivates);
     inactivates.forEach((card) => {
       dispatch(deleteCard(card));
     });
+    alert("All inactivate cards has been deleted.");
   };
 
   return (

@@ -173,7 +173,7 @@ export default function EditCard() {
                   navigate("/");
                 }}
               >
-                Edit Card
+                Update Card
               </button>
               <button
                 onClick={() => {
