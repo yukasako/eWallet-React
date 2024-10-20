@@ -36,9 +36,7 @@ export default function EditCard() {
       ...card,
       activate: true,
     };
-    console.log(updatedCard);
     dispatch(editCard(updatedCard));
-    console.log(cards);
     alert("This card is activated.");
     navigate("/");
   };

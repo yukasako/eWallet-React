@@ -8,31 +8,35 @@ export default function Home() {
 
   return (
     <div className={style.renderField}>
-      <div className={style.renderCard}>
-        {cards.map((card, i) =>
-          card.activate ? (
-            <div key={i}>
-              <h2>Active Card</h2>
-              <Link to={"/card/" + card.id} state={card}>
-                <Card card={card} />
-              </Link>
-            </div>
-          ) : (
-            ""
-          )
-        )}
-      </div>
-      <h2>Inactive Cards</h2>
-      <div className={style.renderCard}>
-        {cards.map((card, i) =>
-          card.activate ? (
-            ""
-          ) : (
-            <Link to={"/card/" + card.id} key={i} state={card}>
-              <Card card={card} />
-            </Link>
-          )
-        )}
+      <div className={style.flex}>
+        <div className={style.renderCard}>
+          {cards.map((card, i) =>
+            card.activate ? (
+              <div key={i}>
+                <h2>Active Card</h2>
+                <Link to={"/card/" + card.id} state={card}>
+                  <Card card={card} />
+                </Link>
+              </div>
+            ) : (
+              ""
+            )
+          )}
+        </div>
+        <div>
+          <h2>Inactive Cards</h2>
+          <div className={style.renderCard}>
+            {cards.map((card, i) =>
+              card.activate ? (
+                ""
+              ) : (
+                <Link to={"/card/" + card.id} key={i} state={card}>
+                  <Card card={card} />
+                </Link>
+              )
+            )}
+          </div>
+        </div>
       </div>
 
       {cards.length < 4 ? (

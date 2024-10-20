@@ -87,3 +87,17 @@
 .renderField {
   padding-top: 80px;
 }
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .flex {
+    width: 60vw;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 100px;
+  }
+}
