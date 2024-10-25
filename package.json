@@ -6,8 +6,8 @@
   "homepage": "./",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -r dist docs",
-    "rebuild": "vite build && rm -R docs && cp -r dist docs",
+    "build": "vite build --outDir docs",
+    "rebuild": "vite build --outDir docs && rm -R docs && cp -r dist docs",
     "deploy": "gh-pages -d docs",
     "lint": "eslint .",
     "preview": "vite preview"
