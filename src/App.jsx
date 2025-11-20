@@ -19,7 +19,10 @@ const router = createBrowserRouter(
       <Route path="/card/:id" element={<EditCard />} />
       <Route path="/setting" element={<Setting />} />
     </Route>
-  )
+  ),
+  {
+    basename: "/eWallet-React",
+  }
 );
 
 function App() {
